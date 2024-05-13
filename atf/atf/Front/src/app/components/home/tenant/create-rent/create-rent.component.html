@@ -1,0 +1,22 @@
+<form class="flex flex-col justify-center items-center w-full max-w-sm" [formGroup]="rentForm"
+    (ngSubmit)="createRent()">
+    <div class="form-item">
+        <label for="startDate">Fecha de inicio:</label>
+        <p-calendar appendTo="body" id="arrivalDate" [minDate]="this.today" (onSelect)="updateMinRentDay($event)" formControlName="arrivalDate"></p-calendar>
+    </div>
+
+    <div class="form-item">
+        <label for="endDate">Fecha de salida:</label>
+        <p-calendar appendTo="body" id="departureDate" [minDate]="this.minRentDay" formControlName="departureDate"></p-calendar>
+    </div>
+
+    <div class="form-item">
+        <label for="peopleQuantity">Personas:</label>
+        <p-inputNumber inputId="peopleQuantity" formControlName="peopleQuantity" [min]="1" [max]="this.property.peopleQuantity" [showButtons]="true"
+            [step]="1" buttonLayout="horizontal"></p-inputNumber>
+    </div>
+
+    <p-button class="self-center" label="Crear" type="submit"
+                [disabled]="!this.rentForm.valid"></p-button>
+
+</form>

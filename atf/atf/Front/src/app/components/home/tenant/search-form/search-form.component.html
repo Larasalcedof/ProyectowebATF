@@ -1,0 +1,19 @@
+<form class="flex w-full gap-5" [formGroup]="searchForm" (ngSubmit)="search()">
+    <div class="form-item">
+        <label for="name">Nombre:</label>
+        <input type="text" id="name" pInputText formControlName="name" />
+    </div>
+
+    <div class="form-item">
+        <label for="city">Municipio:</label>
+        <input type="text" id="city" pInputText formControlName="city" />
+    </div>
+
+    <div class="form-item">
+        <label for="peopleQuantity">Cantidad de personas:</label>
+        <p-inputNumber inputId="peopleQuantity" formControlName="peopleQuantity"></p-inputNumber>
+    </div>
+
+    <p-button class="self-center" [loading]="loading" label="Iniciar" type="submit"
+                [disabled]=""></p-button>
+</form>

@@ -1,0 +1,19 @@
+<div class="flex flex-col gap-3">
+    @if (this.request.status === 'TO_BE_ACCEPTED') {
+        @if (!sureAccept) {
+            <p-button label="Aceptar" (onClick)="this.setSureAccept()"></p-button>
+        }
+        @else {
+            <p-button label="¿Seguro?" [severity]="'success'" (onClick)="acceptRequest()"></p-button>
+        }
+    
+        @if (!sureReject) {
+            <p-button label="Rechazar" (onClick)="this.setSureReject()"></p-button>
+        }
+        @else {
+            <p-button label="¿Seguro?" [severity]="'danger'" (onClick)="rejectRequest()"></p-button>
+        }
+    }@else if(this.request.status === "PAID") {
+        <p-button label="Entregar" (onClick)="this.finishRent()"></p-button>
+    }
+</div>

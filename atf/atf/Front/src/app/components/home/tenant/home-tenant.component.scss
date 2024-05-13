@@ -1,0 +1,19 @@
+.wrapper{
+    @apply px-8 py-8 flex flex-col items-center gap-8
+}
+img{
+    @apply w-11 h-auto
+}
+.mosaic{
+    @apply grid gap-4 w-full;
+    //grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(20%, 1fr));
+    grid-gap: 2rem;
+}
+
+.title{
+    @apply flex flex-col p-5 items-center justify-center bg-white rounded-lg shadow-md w-full gap-5;
+    h1{
+        @apply text-6xl font-bold;
+    }
+}

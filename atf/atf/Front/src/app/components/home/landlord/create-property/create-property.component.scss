@@ -1,0 +1,6 @@
+:host{
+    @apply w-full flex flex-col items-center justify-center
+}
+.form-item{
+    @apply flex flex-col items-center justify-center gap-2  mb-8 flex-1 flex-grow-0 flex-shrink-0;
+}

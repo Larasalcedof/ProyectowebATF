@@ -1,0 +1,6 @@
+<p-dialog header="Rentar propiedad" [(visible)]="rentDialog" [style]="{width: '30vw'}" [modal]="true" [draggable]="false" [resizable]="false">
+    <arriendoya-create-rent [property]="this.property"></arriendoya-create-rent>
+</p-dialog>
+<div class="flex gap-5">
+    <p-button label="Rentar" (onClick)="showRentDialog()"></p-button>
+</div>

@@ -1,0 +1,17 @@
+<p-dialog header="Pagar solicitud" [(visible)]="payDialog" [style]="{width: '30vw'}" [modal]="true" [draggable]="false" [resizable]="false">
+    <arriendoya-payment [rentInfo]="request"> </arriendoya-payment>
+</p-dialog>
+
+<p-dialog header="Calificar solicitud" [(visible)]="reviewDialog" [style]="{width: '30vw'}" [modal]="true" [draggable]="false" [resizable]="false">
+    <arriendoya-review [rentInfo]="request"> </arriendoya-review>
+</p-dialog>
+<div class="flex flex-col gap-3">
+    @switch (this.request.status) {
+        @case ('ACCEPTED') {
+            <p-button label="Pagar" (onClick)="showPayDialog()"></p-button>
+        }
+        @case ('TO_BE_QUALIFIED') {
+            <p-button label="Calificar" (onClick)="showReviewDialog()"></p-button>
+        }
+    }
+</div>

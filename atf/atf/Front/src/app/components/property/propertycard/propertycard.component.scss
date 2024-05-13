@@ -1,0 +1,30 @@
+.wrapper{
+    @apply min-w-[50%] bg-white rounded-lg shadow-md overflow-hidden cursor-pointer;
+}
+.wrapper:hover{
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+    z-index: 1
+}
+
+.image-container{
+    @apply relative overflow-hidden h-40 w-full;
+
+    img{
+        @apply object-cover h-full w-full rounded-t-lg;
+    }
+}
+
+.info-container{
+    @apply p-4 flex flex-col items-center;
+
+    h2{
+        @apply text-lg font-semibold text-gray-600 truncate;
+    }
+
+    .title{
+        @apply text-lg font-extrabold text-gray-800 truncate;
+    }
+    
+}
+

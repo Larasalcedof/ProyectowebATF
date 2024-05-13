@@ -1,0 +1,77 @@
+<form class="flex flex-col justify-center items-center w-full max-w-sm" [formGroup]="propertyForm"
+    (ngSubmit)="submit()">
+    <div class="form-item">
+        <label for="startDate">Nombre: </label>
+        <input type="text" pInputText formControlName="name" />
+    </div>
+
+    <div class="form-item">
+        <label for="endDate">Departamento:</label>
+        <p-dropdown formControlName="department" [options]="departMents" optionLabel="name" optionValue="name"
+            (onChange)="this.getCities($event)" [style]="{width: '100%'}" placeholder="Selecciona un dpto" />
+    </div>
+
+    <div class="form-item">
+        <label for="peopleQ">Ciudad/Municipio:</label>
+        <p-dropdown formControlName="city" [options]="cities" [style]="{width: '100%'}" optionLabel="name" optionValue="name"
+            placeholder="Selecciona un municipio" />
+
+    </div>
+
+    <div class="form-item">
+        <label for="peopleQ">Tipo de ingreso:</label>
+        <p-dropdown formControlName="ingressType" [options]="ingressType" [style]="{width: '100%'}"
+            optionLabel="display" optionValue="type" placeholder="Selecciona un tipo" />
+    </div>
+
+    <div class="form-item">
+        <label for="peopleQ">Descripción:</label>
+        <textarea rows="5" cols="30" pInputTextarea formControlName="description">
+            </textarea>
+
+    </div>
+
+    <div class="form-item">
+        <label for="peopleQ">Cantidad de personas:</label>
+        <p-inputNumber inputId="peopleQuantity" formControlName="peopleQuantity" [min]="1" [showButtons]="true" />
+    </div>
+
+    <div class="form-item">
+        <label for="peopleQ">Cantidad de baños:</label>
+        <p-inputNumber inputId="bathRoomQuantity" formControlName="bathRoomQuantity" [min]="0" [showButtons]="true" />
+    </div>
+
+    <div class="form-item">
+        <label for="peopleQ">Mascotas:</label>
+        <p-toggleButton formControlName="arePetsAllowed" onLabel="Si" offLabel="No" />
+    </div>
+
+    <div class="form-item">
+        <label for="peopleQ">Piscina:</label>
+        <p-toggleButton formControlName="hasPool" onLabel="Si" offLabel="No" />
+    </div>
+
+    <div class="form-item">
+        <label for="peopleQ">Asador:</label>
+        <p-toggleButton formControlName="hasBBQ" onLabel="Si" offLabel="No" />
+    </div>
+
+    <div class="form-item">
+        <label for="peopleQ">Precio:</label>
+        <p-inputNumber mode="currency" currency="COP" locale="es-CO" inputId="price" formControlName="price" [min]="0"
+            [showButtons]="true" />
+    </div>
+
+    @if (this.oldProperty === null) {
+        <div class="form-item">
+            <label for="peopleQ">Imágen:</label>
+            <p-fileUpload #fileUpload mode="basic" [chooseLabel]="'Selecciona'" accept="image/*"
+                (onSelect)="selectFile($event, fileUpload)"></p-fileUpload>
+        </div>
+    }
+
+
+    <p-button class="self-center" label="Enviar" type="submit"
+        [disabled]="!this.propertyForm.valid || this.createOrUpdate()"></p-button>
+
+</form>

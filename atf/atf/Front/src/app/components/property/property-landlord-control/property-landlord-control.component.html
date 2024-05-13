@@ -1,0 +1,12 @@
+<p-dialog header="Editar propiedad" [(visible)]="showEditDialog" [style]="{width: '30vw'}" [modal]="true" [draggable]="false" [resizable]="false">
+    <arriendoya-create-property [oldProperty]="this.property"> </arriendoya-create-property>
+</p-dialog>
+<div class="flex gap-5">
+    @if (!sure) {
+        <p-button label="Desabilitar" (onClick)="this.setSure()"></p-button>
+    }
+    @else {
+        <p-button label="¿Seguro?" [severity]="'danger'" (onClick)="this.disableProperty()"></p-button>
+    }
+    <p-button label="Editar" (onClick)="this.setShowEditDialog()"></p-button>
+</div>

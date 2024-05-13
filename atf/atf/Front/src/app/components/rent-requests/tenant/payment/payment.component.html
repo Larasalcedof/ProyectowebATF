@@ -1,0 +1,18 @@
+<p-toast/>
+<form class="flex flex-col justify-center items-center w-full max-w-sm" [formGroup]="payForm"
+    (ngSubmit)="pay()">
+    <h1 class="text-xl font-bold">Valor a pagar {{this.rentInfo?.property?.price | currency}}</h1>
+
+    <div class="form-item">
+        <label for="bank">Banco:</label>
+        <p-dropdown appendTo="body" id="bank" formControlName="bank" [options]="BANKS" placeholder="Selecciona un banco"></p-dropdown>
+    </div>
+
+    <div class="form-item">
+        <label for="accountNumber">No. de cuenta:</label>
+        <p-inputNumber inputId="accountNumber" formControlName="accountNumber" maxlength="16"></p-inputNumber>
+    </div>
+
+    <p-button class="self-center" label="Pagar" type="submit" [disabled]="!this.payForm.valid"></p-button>
+
+</form>

@@ -1,0 +1,88 @@
+<p-toast></p-toast>
+<arriendoya-frame>
+    <div class="wrapper">
+        <div class="card">
+            <h1>Detalles de la propiedad </h1>
+        </div>
+
+        <div class="property-wrapper">
+            @if (property$ | async; as property) {
+            <div class="w-1/2">
+                <img [src]="this.getImageUrl(property.img)" alt="Image" class="w-full h-full object-cover">
+            </div>
+            <div class="w-1/4 p-4 flex flex-col gap-2">
+
+                <div class="field">
+                    <h1>Nombre:</h1>
+                    <h2>{{property.name}}</h2>
+                </div>
+
+                <div class="field">
+                    <h1>Departamento:</h1>
+                    <h2>{{property.department}}</h2>
+                </div>
+
+                <div class="field">
+                    <h1>Ciudad/Municipio:</h1>
+                    <h2>{{property.city}}</h2>
+                </div>
+
+                <div class="field">
+                    <h1>Descripción:</h1>
+                    <h2>{{property.description}}</h2>
+                </div>
+
+                <div class="field">
+                    <h1>Precio:</h1>
+                    <h2>{{property.price | currency}}</h2>
+                </div>
+
+                <div class="field">
+                    <h1>Cantidad de personas:</h1>
+                    <h2>{{property.peopleQuantity}}</h2>
+                </div>
+            </div>
+            <div class="w-1/4 p-4 flex flex-col gap-2">
+                <div class="field">
+                    <h1>Tipo de ingreso:</h1>
+                    <h2>{{this.getIngress(property.ingressType)}}</h2>
+                </div>
+
+                <div class="field">
+                    <h1>Cantidad de baños:</h1>
+                    <h2>{{property.bathRoomQuantity}}</h2>
+                </div>
+
+                <div class="field">
+                    <h1>Permite mascotas:</h1>
+                    <h2>{{property.arePetsAllowed ? "Si": "No"}}</h2>
+                </div>
+
+                <div class="field">
+                    <h1>Tiene piscina:</h1>
+                    <h2>{{property.hasPool ? "Si": "No"}}</h2>
+                </div>
+
+                <div class="field">
+                    <h1>Tiene asador:</h1>
+                    <h2>{{property.hasBBQ ? "Si": "No"}}</h2>
+                </div>
+            </div>
+
+            }
+
+        </div>
+
+        <div class="card">
+            @if (property$ | async; as property) {
+                @if (this.getUserType() === "LANDLORD") {
+                    <arriendoya-property-landlord-control [property]="property"></arriendoya-property-landlord-control>
+                }@else {
+                    <arriendoya-property-tenant-control [property]="property"></arriendoya-property-tenant-control>
+                }
+            }
+        </div>
+    </div>
+
+
+</arriendoya-frame>

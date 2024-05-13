@@ -1,0 +1,11 @@
+<div class="wrapper" (click)="seeDetails(property.id)">
+    <div class="image-container">
+        <img [src]="this.imageUrl" alt="Image">
+    </div>
+    <div class="info-container">
+        <h2 class="title">{{property.name}}</h2>
+        <h2>{{property.department}}</h2>
+        <h2>{{property.city}}</h2>
+        <h2>{{property.price | currency}}</h2>
+    </div>
+</div>

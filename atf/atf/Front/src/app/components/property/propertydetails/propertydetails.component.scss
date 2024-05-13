@@ -1,0 +1,21 @@
+.wrapper{
+    @apply px-8 py-8 flex flex-col items-center gap-8
+}
+
+.card{
+    @apply flex p-5 items-center justify-center bg-white rounded-lg shadow-md w-2/3 gap-5;
+    h1{
+        @apply text-6xl font-bold w-full text-center;
+    }
+}
+
+.property-wrapper{
+    @apply flex w-2/3 gap-4 bg-white rounded-lg shadow-md overflow-hidden;
+
+    h1{
+        @apply font-extrabold text-gray-950
+    }
+    h2{
+        @apply font-bold text-gray-700
+    }
+}

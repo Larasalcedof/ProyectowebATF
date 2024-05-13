@@ -1,0 +1,23 @@
+<p-toast></p-toast>
+<p-dialog header="Crea una propiedad" [(visible)]="showDialog" [style]="{width: '30vw'}" [modal]="true" [draggable]="false" [resizable]="false">
+    <arriendoya-create-property> </arriendoya-create-property>
+</p-dialog>
+<arriendoya-frame>
+    <div class="wrapper">
+        <div class="title">
+            <h1>Tus propiedades</h1>
+
+            <p-button label="Crea una nueva" (onClick)="this.showCreateDialog()"></p-button>
+        </div>
+        @if (properties$ | async; as properties) {
+            <div class="mosaic">
+                @for (property of properties; track $index) {
+                    <arriendoya-propertycard [property]="property" />
+                }
+            </div>
+
+        }@else {
+            <p>Ha habido un problema</p>
+        }
+    </div>
+</arriendoya-frame>

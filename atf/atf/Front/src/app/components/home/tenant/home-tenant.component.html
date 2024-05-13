@@ -1,0 +1,24 @@
+<p-toast></p-toast>
+<arriendoya-frame>
+    <div class="wrapper">
+        <div class="title">
+            <h1>Búsqueda de propiedades </h1>
+
+            <arriendoya-search-form (searchResult)="doSearch($event)"></arriendoya-search-form>
+        </div>
+        @if (properties$ | async; as properties) {
+            <div class="mosaic">
+                @for (property of properties; track $index) {
+                    <arriendoya-propertycard [property]="property" />
+                }@empty {
+                    <div class="title">
+                        <h1>No hay propiedades</h1>
+                    </div>
+                }
+            </div>
+
+        }@else {
+            <div class="title">Cargando...</div>
+        }
+    </div>
+</arriendoya-frame>

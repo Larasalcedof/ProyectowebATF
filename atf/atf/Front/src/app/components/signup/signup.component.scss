@@ -1,0 +1,16 @@
+:host{
+    @apply flex justify-center items-center;
+}
+.card{
+    @apply flex flex-col items-center bg-white rounded-lg shadow-lg p-6 gap-8 my-5
+}
+.form-item{
+    @apply flex flex-col gap-2  mb-8 flex-1 flex-grow-0 flex-shrink-0;
+}
+img{
+    @apply w-80 h-auto shadow-md rounded-full overflow-hidden
+}
+
+h1{
+    @apply text-6xl font-bold 
+}

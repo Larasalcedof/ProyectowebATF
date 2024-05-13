@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: grupo_1_8
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
+  datasource:
+    url: jdbc:mysql://190.146.2.119:4407/grupo_1_8
+    username: grupo_1_8
+    password: grupo_1_8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+jwt:
+  token:
+    secret: 5pAq6zRyX8bC3dV2wS7gN1mK9jF0hL4tUoP6iBvE3nG8xZaQrY7cW2fA=

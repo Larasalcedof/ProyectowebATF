@@ -1,0 +1,27 @@
+<p-toast></p-toast>
+<div class="container">
+    <div class="card">
+        <img src="assets/logo-color.png" alt="Logo">
+        <form class="flex flex-col w-full max-w-sm" [formGroup]="loginForm" (ngSubmit)="login()">
+            <div class="form-item">
+                <label for="email">Correo:</label>
+                <input type="text" id="email" pInputText formControlName="email" />
+                @if (this.loginForm.get("email")?.errors?.["required"] && !this.loginForm.get("email")?.pristine) {
+                    <p-message severity="danger" text="El usuario es necesario"></p-message>
+                }
+            </div>
+
+            <div class="form-item">
+                <label for="password">Contraseña:</label>
+                <p-password inputStyleClass="w-full" styleClass="w-full" id="password" formControlName="password" [feedback]="false"></p-password>
+                @if (this.loginForm.get("password")?.errors?.["required"] && !this.loginForm.get("password")?.pristine) {
+                    <p-message severity="danger" text="La contraseña es necesaria"></p-message>
+                }
+            </div>
+            <p-button class="self-center" label="¿No tienes una cuenta? Créala" [link]="true" [routerLink]="['/signin']"></p-button>
+            <p-button class="self-center" [loading]="loading" label="Iniciar" type="submit"
+                [disabled]="loginForm.invalid"></p-button>
+        </form>
+
+    </div>
+</div>

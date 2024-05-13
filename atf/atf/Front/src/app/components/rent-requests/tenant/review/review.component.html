@@ -1,0 +1,23 @@
+<p-toast></p-toast>
+<form class="flex flex-col justify-center items-center w-full max-w-sm" [formGroup]="reviewForm"
+    (ngSubmit)="review()">
+    <h1 class="text-xl font-bold">Calificando a {{this.rentInfo.property.name}}</h1>
+
+    <div class="form-item">
+        <label for="propertyRating">Puntuación de la propiead:</label>
+        <p-rating formControlName="propertyRating" [cancel]="false"></p-rating>
+    </div>
+
+    <div class="form-item">
+        <label for="landlordRating">Puntuación del dueño:</label>
+        <p-rating formControlName="landlordRating" [cancel]="false"></p-rating>
+    </div>
+
+    <div class="form-item">
+        <label for="comment">Comentario:</label>
+        <textarea rows="5" cols="30" pInputTextarea formControlName="comment" [autoResize]="true"></textarea>
+    </div>
+
+    <p-button class="self-center" label="Enviar" type="submit" [disabled]="!this.reviewForm.valid"></p-button>
+
+</form>
